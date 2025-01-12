@@ -23,7 +23,8 @@ The key and id file necessary to interact with the digital paper are stored in
 
 ## Install
 
-To install the library run `python3 setup.py install` or `pip3 install .` from
+Firstly install the dpt-rp1-py tool with `pip3 install dpt-rp1-py` .
+Then install the library run `python3 setup.py install` or `pip3 install .` from
 the root directory. To install as a developer use `python3 setup.py develop`
 (see [the setuptools
 docs](http://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode))
@@ -49,6 +50,15 @@ Some examples are given below:
     dpmgr upload -d  LocalDir RemoteDir   # upload a directory
     dpmgr delete/download  RemoteFile  # a part of the filename is acceptable
     dpmgr sync local Document       # synchronize remote Document directory with a local directory
+    
+With the configuration file `~/.dpmgr/sync.conf` which contains:
+
+    [pair1]
+    local_path = <replace by local path>
+    remote_path = <replace by remote path>
+    policy = <one of: remote_wins, local_wins, newer, skip>
+
+Then you can use `dpmgr syncpairs`  to syncronize folders automatically.
 
 **Shell completion**
 
